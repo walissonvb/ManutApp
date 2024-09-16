@@ -1,0 +1,146 @@
+<ion-header>
+  <ion-toolbar class="minha-cor">
+    <ion-title>Ordem de Serviço</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ng-container>
+    <div>
+      <form [formGroup]="mensagemForm" (ngSubmit)="gerarRelatorio()">
+        <div *ngIf="firtchec">
+          <ion-toolbar>
+            <p class="deslocado">Nome da Máquina</p>
+          </ion-toolbar>
+          <ion-list>
+            <ion-item *ngFor="let m of maquinas">
+              <ion-button expand="block" class="minha-cor" (click)="firtchecOUT(m.id, m.nome)">
+                {{ m.nome }}
+              </ion-button>
+            </ion-item>
+          </ion-list>
+        </div>
+        <div *ngIf="!firtchec">
+
+          <ion-toolbar>
+            <p class="deslocado">Numero da Ordem</p>
+          </ion-toolbar>
+          <ion-item>
+            <ion-input label="Número da O.S" label-placement="floating" fill="solid" type="text"
+              formControlName="numeroOrdem" required readonly></ion-input>
+          </ion-item>
+
+          <br>
+          <ion-toolbar>
+            <ion-input [value]="selectedMachineName" readonly></ion-input>
+          </ion-toolbar>
+
+          <br><br>
+          <ion-toolbar>
+            <p class="deslocado">tempo de execução</p>
+          </ion-toolbar>
+          <ion-item>
+            <ion-select formControlName="periodicidade" label="Periodicidade"
+              [interfaceOptions]="customperiodicidadeOptions" interface="popover">
+              <ion-select-option value="01 dias">IMEDIATAMENTE</ion-select-option>
+              <ion-select-option value="15 dias">URGENTE</ion-select-option>
+              <ion-select-option value="30 dias">NOS PRÓXIMOS 30 dias</ion-select-option>
+              <ion-select-option value="03 meses">ATÉ 3 meses</ion-select-option>
+              <ion-select-option value="06 meses">SEM GRAVIDADE 6 meses</ion-select-option>
+              <ion-select-option value="01 ano">QUANDO FOR PÓSSIVEL 1 ano</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <br><br>
+          <ion-toolbar>
+            <p class="deslocado">Local da Anomalia</p>
+          </ion-toolbar>
+          <ion-item>
+            <ion-select formControlName="localInstalacao" label="Local Instalacao" [interfaceOptions]="customliOptions"
+              interface="popover">
+              <ion-select-option value="Acionamento">Acionamento</ion-select-option>
+              <ion-select-option value="Estrutura">Estrutura</ion-select-option>
+              <ion-select-option value="Instrumentação">Instrumentação</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <br><br>
+          <ion-toolbar>
+            <p class="deslocado">Tipo de Manutenção</p>
+          </ion-toolbar>
+          <ion-item >
+            <ion-select formControlName="tipo" label="Tipo" [interfaceOptions]="customTipoOptions" interface="popover" (ngModelChange)="onTipoChange($event)">
+              <ion-select-option value="Elétrica">Elétrica</ion-select-option>
+              <ion-select-option value="Mecânica">Mecânica</ion-select-option>
+              <ion-select-option value="Eletroeletrônica">Eletroeletrônica</ion-select-option>
+              <ion-select-option value="Pneumática">Pneumática</ion-select-option>
+              <ion-select-option value="Hidráulica">Hidráulica</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <br><br>
+          <ion-toolbar>
+            <p class="deslocado">Tipo de Anomalia</p>
+          </ion-toolbar>
+          <ion-list>
+            <ion-select formControlName="modoFalha" [interfaceOptions]="customFalhaOptions" interface="popover"
+              [multiple]="true">
+              <ion-select-option *ngFor="let option of modoFalhaOptions"   value="option">{{option}}</ion-select-option>
+
+            </ion-select>
+          </ion-list>
+
+          <br><br>
+
+          <ion-toolbar>
+            <p class="deslocado">Nome da Peças</p>
+          </ion-toolbar>
+          <ion-item>
+            <ion-select [interfaceOptions]="custompecaOptions" formControlName="selectedArvorepeca"
+              (ionChange)="onArvorepecaChange($event)">
+              <ion-select-option *ngFor="let arvorepeca of arvorepecas" [value]="selectedMachineName">
+                {{ arvorepeca.nome}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-toolbar>
+            <p class="deslocado">Informações Adiocionais</p>
+          </ion-toolbar>
+          <ion-item>
+            <ion-input label="Instrução" label-placement="floating" placeholder="Digite a instrução"
+              formControlName="instrucao" required>
+            </ion-input>
+          </ion-item>
+
+          <br><br>
+          <ion-toolbar>
+            <p class="deslocado">Foto</p>
+          </ion-toolbar>
+          <ion-item>
+            <ion-input label="Foto" label-placement="floating" fill="solid" placeholder="Digite a foto" type="text"
+              formControlName="foto"></ion-input>
+          </ion-item>
+          <ion-button type="submit" expand="block" class="minha-cor">Criar O.S</ion-button>
+          <br><br><br><br>
+        </div>
+      </form>
+    </div>
+
+    <ion-footer>
+      <ion-toolbar class="minha-cor">
+        <ion-buttons slot="start">
+        </ion-buttons>
+        <div class="ion-text-center" style="flex: 1;">
+          <ion-button class="minha-cor">
+            <ion-icon name="search-outline"></ion-icon>
+          </ion-button>
+        </div>
+        <ion-buttons slot="end">
+          <ion-button (click)="fecharModal()">
+            <ion-icon name="close-circle-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-footer>
+  </ng-container>
+</ion-content>

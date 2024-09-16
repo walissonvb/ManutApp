@@ -1,0 +1,134 @@
+<ion-header id="app-header">
+  <ion-toolbar class="transparent-header">
+    <ion-buttons slot="start">
+      <ion-menu-button id="menu-button">
+        <ion-icon name="menu"></ion-icon>
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-button slot="end" search (click)="pesquisar()" id="search-button">
+      <ion-icon name="search-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-menu side="start" contentId="menuContent" id="side-menu">
+  <ion-content>
+    <!-- Lista de opções do menu -->
+    <ion-list id="menu-list">
+      <ion-item id="ordem-servico">ORDEM DE SERVIÇO</ion-item>
+      <ion-item id="manutencao-autonoma">MANUTENÇÃO AUTONOMA</ion-item>
+      <ion-item id="rotas-inspecao">ROTAS DE INSPEÇÃO</ion-item>
+      <ion-item id="preditiva">PREDITIVA</ion-item>
+      <ion-item id="material-pesquisa">MATERIAL PESQUISA</ion-item>
+      <ion-item id="coleta-vibracao">VIBRAÇÃO</ion-item>
+      <ion-item id="coleta-termo">TERMOGRAFIA</ion-item>
+      <ion-item id="COLETA-OLEO">ÓLEO</ion-item>
+      <ion-item id="contato">CONTATO</ion-item>
+
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-router-outlet id="menuContent"></ion-router-outlet>
+
+<div id="fullscreen-image">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-segment-button value="OrdemServiço" (click)="PopoverManuaisComponent($event)" id="manuais-button">
+          Ordem Serviço
+        </ion-segment-button>
+      </ion-col>
+      <ion-col>
+        <ion-segment-button value="maquinario" (click)="PopoverMaquinaComponent($event)" id="maquinario-button">
+          MAQUINÁRIO
+        </ion-segment-button>
+      </ion-col>
+      <ion-col>
+
+        <ion-segment-button value="preventiva" (click)="PopoverPreventivaComponent($event)" id="preventiva-button">
+          PREVENTIVA
+        </ion-segment-button>
+      </ion-col>
+      <ion-col>
+
+        <ion-segment-button value="almoxarifado" (click)="PopoverSuboptionsComponent($event)" id="almoxarifado-button">
+          ALMOXARIFADO
+        </ion-segment-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-card id="fullscreen-card">
+          <ion-card-header id="cardHeader">
+            <ion-card-title class="card-titulo">Proximas Preventivas</ion-card-title>
+            <ion-card-subtitle class="card-subtitulo" *ngIf="retPreve.length === 0">NÃO HÁ PREVENTIVAS CADASTRADAS</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-list *ngFor="let mensagem of retPreve" id="ion-list">
+              <ion-item id="fullscreen-image-maquina">
+                <ion-thumbnail slot="start">
+                  <img src="{{ mensagem.foto }}" />
+                </ion-thumbnail>
+                <ion-label>{{mensagem.nome}}</ion-label>
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card id="fullscreen-card">
+
+          <ion-card-header>
+            <ion-card-title class="card-titulo">Relatórios</ion-card-title>
+            <ion-card-subtitle class="card-subtitulo" *ngIf="infoRel.length === 0">NÃO HÁ RELATÓRIOS</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-list *ngFor="let almox of infoRel " id="ion-list">
+              <ion-item id="fullscreen-image-maquina">
+                <ion-label>{{almox .nomePreventiva}}</ion-label>
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card id="fullscreen-card">
+          <ion-card-header>
+            <ion-card-title class="card-titulo">Todos os Ativos</ion-card-title>
+            <ion-card-subtitle class="card-subtitulo" *ngIf="retmaq.length === 0">NÃO HÁ MAQUINAS CADASTRADAS</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+
+            <ion-list *ngFor="let maquina of retmaq " id="ion-list">
+              <ion-item id="fullscreen-image-maquina">
+                <ion-thumbnail slot="start">
+                  <img src=" {{ maquina .classificacao }}" />
+                </ion-thumbnail>
+                <ion-label>{{maquina .nome}}</ion-label>
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>
+<ion-footer class="transparent-footer">
+  <ion-fab>
+    <ion-fab-button (click)="logout()">
+      <ion-icon name="add">sair</ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="end">
+      <ion-fab-button>
+        <ion-icon name="document"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button>
+        <ion-icon name="color-palette"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button>
+        <ion-icon name="globe"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-footer>

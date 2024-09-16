@@ -1,0 +1,23 @@
+/* global.scss ou variables.scss */
+.toast-container {
+  position: fixed; /* Fixa a posição na tela */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  pointer-events: none; /* Permite que cliques passem pelo toast */
+  z-index: 1000; /* Garante que o toast fique acima de outros elementos */
+}
+
+.toast {
+  --background: #28a745; /* Cor de fundo verde para sucesso */
+  --color: #fff; /* Cor do texto branco */
+  --border-radius: 10px; /* Arredondar bordas */
+  --padding: 16px; /* Espaçamento interno */
+  --font-size: 16px; /* Tamanho da fonte */
+  --max-width: 80%; /* Largura máxima do toast */
+  --width: auto; /* Largura automática */
+}

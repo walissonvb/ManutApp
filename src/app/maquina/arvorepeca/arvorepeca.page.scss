@@ -1,0 +1,137 @@
+.div-input-firt {
+  border: 1px solid #000;
+  border-radius: 5px; /* Arredonda os cantos do botão */
+  margin: 15px;
+  background: rgba(49, 49, 48, 0.4) !important;
+  color: rgb(252, 251, 251);
+  text-align: center;
+  text-shadow:  4px rgba(10, 10, 10); /* Adiciona uma sombra ao texto */
+  font-size: 30px; /* Aumenta o tamanho do texto */
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.minha-cor {
+  --background: orange;
+}
+
+ion-item{
+  margin: 15px;
+}
+p.deslocado {
+  --background: rgb(231, 226, 216);
+  font-family: "Sedan", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+  color: orange;
+  margin-left: 20px; /* Ajuste a margem conforme necessário */
+}
+
+ion-radio-group.centralizado {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+ion-radio-group.centralizado ion-radio:not(:last-child) {
+  margin-right: 30px;
+}
+
+.buttons{
+  --border-color:orange; /* Cor da linha */
+}
+::ng-deep #fullscreen-image {
+  background: url('https://live.staticflickr.com/65535/53683733944_3ff2eba62d_w.jpg') no-repeat center center fixed;
+  height: 100vh;
+}
+.botao-direita {
+  display: flex;
+  justify-content: flex-end;
+}
+.minha-cor {
+  --background: orange;
+  text-align: center;
+}
+
+ion-button {
+  --background: orange;
+}
+
+ion-radio::part(container) {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  border: 1.5px solid orange;
+  display: flex;
+}
+
+ion-radio::part(mark) {
+  background: none;
+  transition: none;
+  transform: none;
+  border-radius: 0;
+}
+
+ion-radio.radio-checked::part(container) {
+  background: orange;
+  border-color: transparent;
+}
+
+ion-radio.radio-checked::part(mark) {
+  width: 6px;
+  height: 10px;
+  border-width: 0px 2px 2px 0px;
+  border-style: solid;
+  border-color: #fff;
+  transform: rotate(45deg);
+}
+
+ion-radio-group.centralizado {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+ion-radio-group.centralizado ion-radio:not(:last-child) {
+  margin-right: 30px;
+}
+
+p.deslocado {
+  --background: rgb(231, 226, 216);
+  font-family: "Sedan", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+  color: orange;
+  padding-right: 20px;
+  margin-left: 50px;
+}
+
+.texto-esquerda {
+  text-align: left;
+}
+
+.botao-esquerda {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.botao-direita {
+  display: flex;
+  justify-content: flex-end;
+}
+.dateTimeItem {
+  margin: auto;
+  width: 50%; /* ou qualquer largura desejada */
+}
+/* Estilos para telas com largura máxima de 600px */
+@media screen and (max-width: 600px) {
+  .dateTimeItem {
+    width: 100%; /* Ajusta a largura para 100% em telas pequenas */
+  }
+}
+
+

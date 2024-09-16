@@ -1,0 +1,54 @@
+# PREVENTX
+# DAY
+05/02 FAZER A PG CADASTROPREVE APRESENTAR TODAS AS PREVENTIVAS, UM EXEMPLAR DE CADA TIPO(ELETRICA E MECANICA) PRA CADA MÁQUINA. reslvido,
+
+06/02 exibir item clicado no preventModal. resolvido, testar funcionalidade do atualizar e deletar, melhoar o botão delete.
+
+07/02 atualizar abrindo obj erro, navegar entre obj erro.
+
+08/02 navegação funcionando, atualizar recebendo os atributos do objeto desejado resolvido, verificar salvar eficiente,.
+
+09/02 implementando, a mudança dos cards,
+
+16/02 apagar os campos do form de criação das peças das maquinas, todas as peças trazer somente as da maquina, css do relatorio
+
+17/06 IMPLEMENTAR PREVENTIVA COM OPÇOES, TODAS, EM ATRASO E EXECUTADO
+IMPLEMENTAR OPÇÃO DE COMENTÁTIO, TEM O BOTÃO NEXT, COLOCAR ENCONTREI ANOMALIA,
+
+26/06 IMPLEMENTAR PREVENTIVA COM OPÇOES, TODAS, EM ATRASO E EXECUTADO sistema de buscar dados dentro do app, padronizar os heders, estoque almoxarife fazer igual peças
+
+04/07 melorar 0 intem local de instalção (acionamento, estrutura, INSTRUMENTAÇÃO ) implementar o tipo da peça, (eletrica, mecanica, eletroeletronica, pneumatica, hidraulica) e modo de inspeção na coleção arvorepecas
+na criação de preventivas implementar modulos de falha
+
+12/07 implementar a preventiva, no formulário um list com o retorno do listapecas e pós escolha modo de inspeção. melhorar a questão de salvar com o idcompst
+
+17/07 A LÓGICA DEVE SER, O EVENTO CLICK DO MAQUINA EM QUESTÃO PASSAR UM ID DA MAQUINA ABRINDO O FORME PASSANDO O NOME DA MAQUINA,
+USAR O ID DA MAQUINA PRA FAZER O IDCOMPOST[ID+NOMEMAQUINA+NOMEPREV+TIPO+SEQUECIANUMERICA] USAR O IDCOMPOST PRA SELECIONAR A PREVENTIVA PRA EXECUTAR
+25/07  AJUSTAR A FUNÇÃO INSTRUÇÃO[ NOMEPECA+MODOS DE FLAHA+TIPOS DE INSPEÇÃO]
+
+29/07 passo valor não inicia 1 apesar do forme está 1, ajustar a leitura da sequencia da execução
+
+10/08 melhorar os modos de falha m e f, voltar p modoFalha
+
+11/09 PASSO E STATUS DOIS CIRCULOS NA PARTE SUPERIOR DO CADASTRO DE PREVENTIVAS
+
+
+## Descrição
+
+Um programa multi plataforma voltado pra getão da manutenção fabril, capaz de gerir todos as areas ligada a manutenção aplicada, gestão de estoque de peças de reposição, cadastro de maquinas e ativos, agendamento de manutenção corretiva/preventiva/preditiva, implementar manutenção preventiva passo a passo de forma excluisiva pra cada equipamento/maquina/ativo, graficos do MTDI, MPBI.
+
+## Como Instalar
+
+Instruções detalhadas sobre como instalar e configurar o seu projeto.
+
+## Como Usar
+
+Exemplos de como usar o seu projeto, possivelmente com exemplos de código.
+
+## Como Contribuir
+
+Diretrizes para contribuir para o seu projeto, se aplicável.
+
+## Licença
+
+Informações sobre a licença do seu projeto.

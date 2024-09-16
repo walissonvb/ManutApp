@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar class="minha-cor">
+    <ion-title>Preventiva Da Maquina</ion-title>
+    <ion-button slot="end" search (click)="pesquisar()" id="search-button">
+      <ion-icon name="search-outline"></ion-icon>
+    </ion-button>  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+  <ion-card class="ion-card" *ngFor="let maquinaItem of maquina; let i = index">
+    <ion-card-header>
+      <ion-card-title class="card-titulo">{{ maquinaItem.nome }}</ion-card-title>
+      <ion-card-subtitle class="card-subtitulo">{{ maquinaItem.classificacao }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-buttons class="card-botoes">
+      <ion-button fill="clear" color="warning" (click)="creatnewprevet(maquinaItem)">Criar Preventiva</ion-button>
+      <ion-button>
+
+      <ion-icon name="close-circle-outline"></ion-icon>
+    </ion-button>
+    </ion-buttons>
+  </ion-card>
+  <ng-template #noMaquinas>
+    <p>Nenhuma máquina disponível.</p>
+  </ng-template>
+
+<ion-footer class="transparent-footer">
+  <ion-toolbar class="minha-cor">
+    <ion-buttons slot="start">
+    </ion-buttons>
+    <div class="ion-text-center" style="flex: 1;">
+      <ion-button class="minha-cor">
+        <ion-icon name="search-outline"></ion-icon>
+      </ion-button>
+    </div>
+    <ion-buttons slot="end">
+      <ion-button (click)="fecharModal()">
+        <ion-icon name="close-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
+
+</ion-content>

@@ -1,0 +1,11 @@
+.minha-cor {
+  --background: orange;
+}
+
+    .boton {
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      --background: rgba(255, 164, 0);
+    }

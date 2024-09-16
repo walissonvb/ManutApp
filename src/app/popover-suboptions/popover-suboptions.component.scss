@@ -1,0 +1,24 @@
+.button-container {
+  margin-top: 10px; /* Espaçamento superior entre a lista de opções e os botões */
+  display: flex;
+  flex-direction: column; /* Os botões serão empilhados verticalmente */
+  align-items: center; /* Alinhe os botões ao centro */
+  background: url('https://live.staticflickr.com/2224/3542860707_ca74d7c647_o.jpg') no-repeat center center fixed;
+  border-radius: 5px;
+  background-size: 200%;
+}
+
+
+.button-container button {
+  margin-bottom: 5px; /* Espaçamento inferior entre os botões */
+  font-family: 'Arial', sans-serif; /* Altere para a fonte desejada */
+  font-size: 30px; /* Altere para o tamanho de fonte desejado */
+  font-weight: bold; /* Altere para o peso da fonte desejado */
+  color: rgb(252, 252, 252); /* Cor do texto */
+  -webkit-text-stroke: 1px rgba(8, 8, 8, 0.4); /* Borda*/
+  margin-top: 20px; /* Desloca os botões para baixo */
+  background-color:rgba(8, 8, 8, 0.4) ;
+  border-radius: 5px;
+
+}
+

@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar class="minha-cor">
+    <ion-title>Cadastro Produto</ion-title>
+    <ion-button slot="end" search (click)="pesquisar()" id="search-button">
+      <ion-icon name="search-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<form #f="ngForm" (ngSubmit)= "enviando(f)">
+  <ion-item>
+    <ion-label position="floating">Produto</ion-label>
+    <ion-input [(ngModel)] ="dados.produto" name="produto"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Estoque</ion-label>
+    <ion-input [(ngModel)] ="dados.estoque" name="estoque"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Local</ion-label>
+    <ion-input [(ngModel)] ="dados.local" name="local"></ion-input>
+  </ion-item>
+
+  <ion-button class="boton" fill="outline" expand="block" type="submit">Cadastrar</ion-button>
+</form>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar  class="minha-cor">
+    <ion-buttons slot="end">
+      <ion-button (click)="fecharModal()">
+        <ion-icon name="close-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

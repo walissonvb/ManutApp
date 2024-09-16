@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar class="minha-cor">
+    <ion-title>Relatório O.S</ion-title>
+    <ion-button slot="end" search (click)="pesquisar()" id="search-button">
+      <ion-icon name="search-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-toolbar class="minha-cor">
+  <ion-segment color="dark" [(ngModel)]="segmentValue">
+    <ion-segment-button class="segment" value="NÃO LIDOS">
+      <ion-label>NÃO LIDOS</ion-label>
+    </ion-segment-button>
+    <ion-segment-button class="segment" value="LIDOS">
+      <ion-label>LIDOS</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+</ion-toolbar>
+
+<ion-content>
+  <ion-list *ngIf="!layotPage">
+    <ion-item
+      *ngFor="let os of ordemServico"
+      [button]="true"
+      (click)="opemOrdenSservice(os.numeroOrdem)">
+      <ion-label *ngIf="os.lido === (segmentValue === 'LIDOS')">
+       {{ os.dataInicial }}, {{ os.nomePreventiva }}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <div *ngIf="layotPage && allLidas">
+    <ion-card>
+      <ion-card-header>
+        <ion-title>{{ allLidas.numeroOrdem }}</ion-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p><strong>Equipamento:</strong> {{ allLidas.nomePreventiva }}</p>
+        <p><strong>Local:</strong> {{ allLidas.localInstalacao }}</p>
+        <p><strong>Data de Abertura:</strong> {{ allLidas.dataInicial | date }}</p>
+        <p><strong>Tempo Máximo:</strong> {{ allLidas.periodicidade }}</p>
+        <p><strong>Descrição da Anomalia:</strong> {{ allLidas.instrucao }}</p>
+        <ion-button expand="block" class="minha-cor" (click)="endOs(allLidas)">
+          O.S executada
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
+
+<!-- Rodapé fixo com o botão de fechar modal -->
+<ion-footer>
+  <ion-toolbar class="minha-cor">
+    <ion-buttons slot="end">
+      <ion-button (click)="fecharModal()">
+        <ion-icon name="close-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

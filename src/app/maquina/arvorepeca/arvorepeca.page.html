@@ -1,0 +1,111 @@
+<ion-header>
+  <ion-toolbar class="minha-cor">
+    <ion-title>Peças das Maquinas</ion-title>
+    <ion-button slot="end" search (click)="pesquisar()" id="search-button">
+      <ion-icon name="search-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+<main id="fullscreen-image">
+  <ion-content *ngIf="showForm">
+    <ion-list *ngFor="let c of maquina">
+      <div class="div-input-firt" (click)="toggleForm(c.id, c.nome)"> {{c.nome}}</div>
+    </ion-list>
+  </ion-content>
+  <ion-content *ngIf="!showForm">
+    <form [formGroup]="form" (ngSubmit)="enviando()">
+      <p class="deslocado">Maquina</p>
+      <ion-item>
+        <ion-input formControlName="maquina" readonly></ion-input>
+      </ion-item>
+
+      <br>
+      <ion-toolbar>
+        <p class="deslocado">Local de instalação</p>
+      </ion-toolbar>
+      <br>
+      <ion-radio-group formControlName="localInstalacao">
+        <ion-item>
+          <ion-radio class="botao-direita" value="Acionamento" aria-label="Acionamento">Acionamento</ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-radio class="botao-direita" value="Estrutura" aria-label="Estrutura">Estrutura</ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-radio class="botao-direita" value="Instrumentação" aria-label="Instrumentação">Instrumentação</ion-radio>
+        </ion-item>
+      </ion-radio-group>
+      <br>
+
+      <ion-label>Tipo</ion-label>
+      <ion-select formControlName="tipo">
+        <ion-select-option value="Elétrica">Elétrica</ion-select-option>
+        <ion-select-option value="Mecânica">Mecânica</ion-select-option>
+        <ion-select-option value="Eletroeletrônica">Eletroeletrônica</ion-select-option>
+        <ion-select-option value="Pneumática">Pneumática</ion-select-option>
+        <ion-select-option value="Hidráulica">Hidráulica</ion-select-option>
+      </ion-select>
+
+      <p class="deslocado">Nome</p>
+      <ion-item>
+        <ion-input formControlName="nome"></ion-input>
+      </ion-item>
+      <p class="deslocado">Numeração</p>
+      <ion-item>
+        <ion-input formControlName="arvore" readonly></ion-input>
+      </ion-item>
+      <p class="deslocado">Código Fabricante</p>
+      <ion-item>
+        <ion-input formControlName="codigoFabricante"></ion-input>
+      </ion-item>
+
+      <p class="deslocado">Dimensões</p>
+      <ion-item>
+        <ion-input formControlName="dimensoes"></ion-input>
+      </ion-item>
+
+      <br>
+      <ion-toolbar>
+        <p class="deslocado">Modo de Inspeção</p>
+      </ion-toolbar>
+      <br>
+      <ion-radio-group formControlName="inspecao">
+        <ion-item>
+          <ion-radio class="botao-direita" value="Sensitiva" aria-label="Sensitiva">Sensitiva</ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-radio class="botao-direita" value="Temperatura" aria-label="Temperatura">Temperatura</ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-radio class="botao-direita" value="Vibração" aria-label="Vibração">Vibração</ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-radio class="botao-direita" value="Espessura" aria-label="Espessura">Espessura</ion-radio>
+        </ion-item>
+      </ion-radio-group>
+
+      <br>
+      <ion-button color="warning" fill="outline" expand="block" type="submit">Cadastrar</ion-button>
+    </form>
+  </ion-content>
+</main>
+<ion-footer>
+  <ion-toolbar class="minha-cor">
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon name="reader-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <!-- adiciona um elemento div com a classe ion-text-center ao redor do botão -->
+    <div class="ion-text-center" style="flex: 1;">
+      <ion-button class="minha-cor">
+        <ion-icon name="search-outline"></ion-icon>
+      </ion-button>
+    </div>
+    <ion-buttons slot="end">
+      <ion-button (click)="fecharModal()">
+        <ion-icon name="close-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

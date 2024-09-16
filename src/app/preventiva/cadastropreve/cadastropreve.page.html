@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar class="minha-cor">
+    <ion-title>Cadastro S</ion-title>
+    <ion-button slot="end" (click)="pesquisar()" id="search-button">
+      <ion-icon name="search-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" *ngIf="exibirFormulario">
+  <ion-card class="ion-card" *ngFor="let prev of maquinaFilter; let i = index">
+    <ion-card-header>
+      <ion-card-title class="card-titulo">{{ prev.nome }}</ion-card-title>
+      <ion-card-subtitle class="card-subtitulo01">{{ prev.classificacao }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content class="card-content">{{ prev.manual }}</ion-card-content>
+    <ion-buttons class="card-botoes">
+      <ion-button fill="clear" color="warning" (click)="openPrev(prev.id)">Preventivas</ion-button>
+      <ion-icon name="close-circle-outline" (click)="deletPrev(prev.id)"></ion-icon>
+    </ion-buttons>
+  </ion-card>
+</ion-content>
+
+<ion-content [fullscreen]="true" *ngIf="!exibirFormulario">
+  <ion-list *ngIf="mensagensFiltradasPorTipo && objectKeys(mensagensFiltradasPorTipo).length > 0">
+    <ng-container *ngFor="let tipo of objectKeys(mensagensFiltradasPorTipo)">
+      <ion-card *ngFor="let mensagem of mensagensFiltradasPorTipo[tipo]">
+        <ion-card-header>
+          <ion-card-title class="card-titulo">{{ mensagem.nomePreventiva }}</ion-card-title>
+          <ion-card-subtitle class="card-subtitulo">{{ mensagem.nome }}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content class="card-content02">{{ mensagem.tipo }}</ion-card-content>
+        <ion-buttons>
+          <ion-button fill="clear" color="danger" (click)="opemPrevAction(mensagem)">Abrir</ion-button>
+          <ion-button fill="clear" color="warning" (click)="deletPrev(mensagem.id)">Deletar</ion-button>
+        </ion-buttons>
+      </ion-card>
+    </ng-container>
+  </ion-list>
+</ion-content>
+
+
+
+<ion-footer *ngIf="!exibirFormulario">
+  <ion-toolbar class="minha-cor">
+    <div class="ion-text-center" style="flex: 1;">
+      <ion-button class="minha-cor">
+        <ion-icon name="search-outline"></ion-icon>
+      </ion-button>
+    </div>
+    <ion-buttons slot="end">
+      <ion-button (click)="fecharModalexibicao()">
+        <ion-icon name="close-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,62 @@
+.minha-cor {
+  --background: orange;
+}
+
+ion-radio::part(container) {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  border: 1.5px solid orange;
+  display: flex;
+}
+
+ion-radio::part(mark) {
+  background: none;
+  transition: none;
+  transform: none;
+  border-radius: 0;
+}
+
+ion-radio.radio-checked::part(container) {
+  background: orange;
+  border-color: transparent;
+}
+
+ion-radio.radio-checked::part(mark) {
+  width: 6px;
+  height: 10px;
+  border-width: 0px 2px 2px 0px;
+  border-style: solid;
+  border-color: #fff;
+  transform: rotate(45deg);
+}
+
+p.deslocado {
+  --background: rgb(231, 226, 216);
+  font-family: "Sedan", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+  color: orange;
+  margin-left: 20px; /* Ajuste a margem conforme necessário */
+}
+
+ion-radio-group.centralizado {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+ion-radio-group.centralizado ion-radio:not(:last-child) {
+  margin-right: 30px;
+}
+
+ion-input{
+  --background: rgb(231, 226, 216);
+  --border-radius: 10px;
+}
+
+.buttons{
+  --border-color:orange; /* Cor da linha */
+}

@@ -1,0 +1,95 @@
+<ion-header>
+  <ion-toolbar class="minha-cor">
+    <ion-title > Todas as peças</ion-title>
+    <ion-button slot="end" search (click)="pesquisar()" id="search-button">
+      <ion-icon name="search-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <!-- Estrutura para telas grandes -->
+    <ng-container *ngIf="!isSmallScreen">
+      <ion-row class="header-row">
+        <ion-col class="header-col"><h1 class="h1">Máquina</h1></ion-col>
+        <ion-col class="header-col"><h1 class="h1">Local de Instalação</h1></ion-col>
+        <ion-col class="header-col"><h1 class="h1">Nome</h1></ion-col>
+        <ion-col class="header-col"><h1 class="h1">Código ID</h1></ion-col>
+        <ion-col class="header-col"><h1 class="h1">Numeração</h1></ion-col>
+        <ion-col class="header-col"><h1 class="h1">Código do Fabricante</h1></ion-col>
+        <ion-col class="header-col"><h1 class="h1">Dimensões</h1></ion-col>
+      </ion-row>
+      <ion-row *ngFor="let dado of dados" class="data-row">
+        <ion-col class="data-col"><p>{{dado.maquina}}</p></ion-col>
+        <ion-col class="data-col"><p>{{dado.localInstalacao}}</p></ion-col>
+        <ion-col class="data-col"><p>{{dado.nome}}</p></ion-col>
+        <ion-col class="data-col"><p>{{dado.codigoId}}</p></ion-col>
+        <ion-col class="data-col"><p>{{dado.arvore}}</p></ion-col>
+        <ion-col class="data-col"><p>{{dado.codigoFabricante}}</p></ion-col>
+        <ion-col class="data-col"><p>{{dado.dimensoes}}</p></ion-col>
+      </ion-row>
+    </ng-container>
+
+    <!-- Estrutura para telas pequenas -->
+    <ng-container *ngIf="isSmallScreen">
+      <ion-list *ngIf="mostrarLista">
+        <ion-item *ngFor="let dado of dados" (click)="selectPiece(dado.id)">
+          {{ dado.nome }}
+        </ion-item>
+      </ion-list>
+    </ng-container>
+
+    <ng-container *ngIf="selectedPieceId && !mostrarLista">
+      <ion-row *ngFor="let dado of dados" class="data-row small-screen-row">
+        <ion-col class="data-col">
+          <h1 class="h1">Máquina</h1>
+          <p>{{dado.maquina}}</p>
+        </ion-col>
+        <ion-col class="data-col">
+          <h1 class="h1">Local de Instalação</h1>
+          <p>{{dado.localInstalacao}}</p>
+        </ion-col>
+        <ion-col class="data-col">
+          <h1 class="h1">Nome</h1>
+          <p>{{dado.nome}}</p>
+        </ion-col>
+        <ion-col class="data-col">
+          <h1 class="h1">Código ID</h1>
+          <p>{{dado.codigoId}}</p>
+        </ion-col>  <ion-col class="data-col">
+          <h1 class="h1">Numeração</h1>
+          <p>{{dado.arvore}}</p>
+        </ion-col>
+        <ion-col class="data-col">
+          <h1 class="h1">Código do Fabricante</h1>
+          <p>{{dado.codigoFabricante}}</p>
+        </ion-col>
+        <ion-col class="data-col">
+          <h1 class="h1">Dimensões</h1>
+          <p>{{dado.dimensoes}}</p>
+        </ion-col>
+      </ion-row>
+    </ng-container>
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar class="minha-cor">
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon name="reader-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <div class="ion-text-center" style="flex: 1;">
+      <ion-button class="minha-cor">
+        <ion-icon name="search-outline"></ion-icon>
+      </ion-button>
+    </div>
+    <ion-buttons slot="end">
+      <ion-button (click)="fecharPagina()">
+        <ion-icon name="close-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

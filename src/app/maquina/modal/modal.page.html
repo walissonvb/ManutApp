@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar class="minha-cor">
+    <ion-title>Cadastro de Maquinas</ion-title>
+    <ion-button slot="end" search (click)="pesquisar()" id="search-button">
+      <ion-icon name="search-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #f="ngForm" (ngSubmit)= "enviando(f)">
+    <p class="deslocado">Nome</p>
+    <ion-item>
+    <ion-input  [(ngModel)] = "dados.nome" name="nome"></ion-input>
+  </ion-item>
+  <p class="deslocado">Manual</p>
+    <ion-item>
+      <ion-input  [(ngModel)] ="dados.manual" name="manual"></ion-input>
+    </ion-item>
+      <p class="deslocado">Classificação</p>
+      <ion-radio-group [(ngModel)]="dados.classificacao" name="classificacao" class="centralizado">
+        <ion-radio value="A">A</ion-radio>
+        <ion-radio value="B">B</ion-radio>
+        <ion-radio value="C">C</ion-radio>
+      </ion-radio-group>
+      <ion-button color="warning" fill="outline" expand="block" type="submit">Cadastrar</ion-button>
+
+  </form>
+</ion-content>
+  <ion-footer>
+  <ion-toolbar class="minha-cor">
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon name="reader-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <!-- adiciona um elemento div com a classe ion-text-center ao redor do botão -->
+    <div class="ion-text-center" style="flex: 1;">
+      <ion-button class="minha-cor">
+        <ion-icon name="search-outline"></ion-icon>
+      </ion-button>
+    </div>
+    <ion-buttons slot="end">
+      <ion-button (click)= "fecharModal()">
+        <ion-icon name="close-circle-outline" ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

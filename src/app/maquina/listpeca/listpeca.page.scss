@@ -1,0 +1,93 @@
+.minha-cor {
+  --background: orange;
+}
+
+ion-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  --padding-bottom: 0;
+}
+
+ion-grid {
+  flex: 1;
+  padding: 10px; /* Adiciona espaço ao redor do grid */
+}
+
+ion-col h1, ion-col p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.header-row, .data-row {
+  display: flex;
+  align-items: center;
+  height: 50px;
+}
+
+.header-col, .data-col {
+  flex: 1;
+  border: 1px solid orange; /* Define as bordas em todas as direções */
+  text-align: center;
+  margin: 0; /* Remove espaço ao redor das colunas */
+  box-sizing: border-box; /* Garante que o padding e borda sejam incluídos na largura total */
+  padding: 5px; /* Adiciona padding dentro das colunas */
+}
+
+.header-col:last-child, .data-col:last-child {
+  border-right: 1px solid orange; /* Mantém a borda direita no último item */
+}
+
+ion-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 10px;
+  box-sizing: border-box; /* Garante que o padding e borda sejam incluídos na largura total */
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .header-row {
+    display: none; /* Esconde o cabeçalho fixo em telas menores */
+  }
+  .small-screen-row {
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .small-screen-row ion-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinha à esquerda */
+    text-align: left; /* Alinha texto à esquerda */
+    padding: 10px;
+  }
+
+  .small-screen-row ion-col h1, .small-screen-row ion-col p {
+    font-size: 14px; /* Reduz o tamanho da fonte em telas menores */
+    margin: 5px 0; /* Adiciona espaço entre o título e o parágrafo */
+  }
+}
+
+@media (min-width: 769px) {
+  .data-row {
+    flex-direction: row; /* Exibe as colunas em linha nas telas grandes */
+  }
+
+  .header-col, .data-col {
+    margin: 0; /* Remove margens das colunas em telas grandes */
+    border: 1px solid orange; /* Define bordas em telas grandes */
+  }
+
+  ion-col {
+    padding: 10px; /* Mantém o padding nas colunas */
+  }
+}

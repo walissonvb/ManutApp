@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>APlantProtector</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<main>
+  <ion-content>
+    <main>
+      <!-- Seção do formulário de login -->
+<ion-row>
+  <ion-col class="externo">
+    <div class="interno" *ngIf="showLoginForm">
+      <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+        <h1 class="class-one">Login</h1>
+        <div class="div-input">
+          <ion-input class="input-input" [(ngModel)]="dados.email" name="email" placeholder="Digite Seu e-mail Aqui"></ion-input>
+        </div>
+        <div class="div-input">
+          <ion-input class="input-input" [(ngModel)]="dados.password" name="password" placeholder="Digite Sua Senha Aqui"></ion-input>
+        </div>
+        <ion-button type="submit">{{loginButtonText}}</ion-button>
+        <ion-button type="button" (click)="toggleForm()">{{registerButtonText}}</ion-button>
+      </form>
+    </div>
+
+    <!-- Seção do formulário de cadastro -->
+    <div class="interno" *ngIf="!showLoginForm">
+      <form #registerForm="ngForm" (ngSubmit)="cadastrar(registerForm)">
+        <h1 class="class-one">Cadastro</h1>
+        <div class="div-input">
+          <ion-input class="input-input" [(ngModel)]="dados.email" name="email" placeholder="Digite seu e-mail aqui"></ion-input>
+        </div>
+        <div class="div-input">
+          <ion-input class="input-input" [(ngModel)]="dados.password" name="password" placeholder="Digite sua senha aqui"></ion-input>
+        </div>
+        <ion-button type="submit">{{loginButtonText0}}</ion-button>
+        <ion-button type="button" (click)="toggleForm()">{{registerButtonText0}}</ion-button>
+      </form>
+    </div>
+
+  </ion-col>
+
+  <ion-col class="class-tree">
+    <h1 class="title">APlantProtector</h1>
+    <p class="paragrafer">Um programa multi plataforma
+      voltado pra getão da manutenção fabril,
+      capaz de gerir todos as areas ligada a
+      manutenção aplicada, gestão de estoque
+      de peças de reposição, cadastro de maquinas
+       e ativos, agendamento de manutenção corretiva/preventiva/preditiva,
+       implementar manutenção preventiva passo a passo de
+        forma excluisiva pra cada equipamento/maquina/ativo,
+         graficos do MTDI, MPBI..</p>
+
+  </ion-col>
+
+</ion-row>
+</main>
+
+  </ion-content>
+</main>

@@ -1,0 +1,83 @@
+.minha-cor {
+  --background: orange;
+}
+.font-heder {
+  font-family: "Sedan", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 150%;
+  text-shadow: 0 0 5px rgb(10, 10, 10);
+}
+@media only screen and (max-width: 600px) {
+  .ion-card {
+    width: 80%;
+
+  }
+}
+@media only screen and (min-width: 601px) {
+  .ion-card {
+    width: 48%;
+  }
+}
+ion-footer {
+
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 165, 0, 0.4);
+
+}
+.prevItem {
+  border-radius: 50px;
+  --border-color: orange;
+  --border-width: 2px;
+}
+.ion-card {
+  width: 200px; /* Largura desejada */
+  height: 150px; /* Altura desejada */
+  background: url('https://live.staticflickr.com/65535/53683733944_3ff2eba62d_w.jpg') no-repeat center center fixed;
+}
+/* Estilo para o título do card */
+.card-titulo {
+  justify-content:center;
+  font-size: 1rem; /* Tamanho da fonte do título */
+  color:#000000 ; /* Cor do título */
+}
+
+/* Estilo para o subtítulo do card */
+.card-subtitulo {
+
+  font-size: 1rem; /* Tamanho da fonte do subtítulo */
+  color: #181717; /* Cor do subtítulo */
+}
+.card-subtitulo01 {
+
+  font-size: 1.5rem; /* Tamanho da fonte do subtítulo */
+  color: #181717; /* Cor do subtítulo */
+}
+.card-content{
+  font-size: 0,5rem; /* Tamanho da fonte do subtítulo */
+  color: #000000; /* Cor do subtítulo */
+
+}
+.card-content02{
+  font-size: 2rem; /* Tamanho da fonte do subtítulo */
+  color: #000000; /* Cor do subtítulo */
+
+}
+/* Estilo para os botões do card */
+.card-botoes {
+  margin-right: 5%;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Estilo para cada botão individual */
+.card-botoes ion-button {
+  flex: 1;
+  margin-right: 10px; /* Espaçamento entre os botões */
+  margin-right: 10%;
+}
+
+

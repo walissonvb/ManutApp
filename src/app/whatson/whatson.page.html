@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar class="minha-cor">
+    <ion-title>WhatsOn</ion-title>
+  </ion-toolbar>
+</ion-header>
+<div id="image-fullscreen">
+  <div class="search-container">
+    <ion-searchbar class="list" [(ngModel)]="searchTerm" (ionInput)="filterData()"></ion-searchbar>
+  </div>
+
+  <ion-list class="whatson" *ngIf="filteredMensagens.length > 0">
+    <h1>Preventivas</h1>
+
+    <ion-item *ngFor="let mensagem of filteredMensagens">
+      <ion-thumbnail slot="start">
+        <img [src]="mensagem.foto" />
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ mensagem.nome }}</h2>
+        <p>{{ mensagem.tipo }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-list *ngIf="filteredMaquinas.length > 0">
+    <ion-item *ngFor="let maquina of filteredMaquinas">
+      <ion-label>
+        <h2>{{ maquina.nome }}</h2>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-list *ngIf="filteredClientes.length > 0">
+    <ion-item *ngFor="let cliente of filteredClientes">
+      <ion-label>
+        <h2>{{ cliente.produto }}</h2>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</div>
+<ion-footer>
+  <ion-toolbar  class="minha-cor">
+    <ion-buttons slot="end">
+      <ion-button (click)="fecharModal()">
+        <ion-icon name="close-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,134 @@
+<ion-header>
+  <ion-toolbar class="minha-cor">
+    <ion-title>PreventiMODAL</ion-title>
+    <ion-button slot="end" search id="search-button">
+      <ion-icon name="search-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" *ngIf="!exibirFormulario">
+  <ion-list >
+    <ng-container *ngIf="objetpreve">
+      <div >
+        <ion-item>
+          <h3>{{ objetpreve.nomePreventiva }}</h3>
+        </ion-item>
+        <ion-item>
+          <img [src]="objetpreve.foto" alt="" />
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            <p>Status</p>
+          <h3>{{ objetpreve.status }}</h3>
+        </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            <p>Tipo</p>
+          <h3>{{ objetpreve.tipo }}</h3>
+        </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            <p>Passo</p>
+          <h3>{{ objetpreve.passo }}</h3>
+        </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            <p>Observe se há:</p>
+          <h3>{{ objetpreve.modoFalha }}</h3>
+        </ion-label>
+        </ion-item>
+        <ion-item>
+          <h3>{{ objetpreve.instrucao }}</h3>
+        </ion-item>
+      </div>
+    </ng-container>
+  </ion-list>
+  <ion-button class="buton-atualizar" (click)="adicionarComentario()">Anomalia</ion-button>
+  <ion-item *ngIf="exibirCampoComentario">
+    <ion-label position="stacked">Comentário</ion-label>
+    <ion-input [(ngModel)]="novoComentario"></ion-input>
+    <ion-button class="buton-atualizar" (click)="salvarComentario()">Salvar</ion-button>
+  </ion-item>
+  <ion-button class="buton-atualizar" (click)="abrirFormulario()">Atualizar </ion-button>
+
+</ion-content>
+
+<!-- Se a variável exibirFormulario for verdadeira, exibe o formulário -->
+<ion-content [fullscreen]="true" class="ion-padding" *ngIf="exibirFormulario">
+  <form #form="ngForm" (ngSubmit)="atualizarMensagem()">
+    <br>
+    <ion-toolbar class="radio">
+      <h3>status do Serviço</h3>
+    </ion-toolbar>
+    <br>
+    <ion-radio-group [(ngModel)]="objetpreve.status" name="status">
+      <ion-item>
+        Agendado
+        <ion-radio value="agendado"></ion-radio>
+
+        Em Progresso
+        <ion-radio value="em progresso"></ion-radio>
+
+        Concluído
+        <ion-radio value="concluído"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+    <br>
+    <ion-toolbar class="radio">
+      <h3>Agende a Preventiva</h3>
+    </ion-toolbar>
+    <ion-item>
+      <ion-datetime display-format="DD/MM/YYYY" name="dataInicial" [(ngModel)]="objetpreve.dataInicial">
+      </ion-datetime>
+    </ion-item>
+    <br>
+    <ion-toolbar class="radio">
+      <h3>Periodicidade</h3>
+    </ion-toolbar>
+    <br>
+    <ion-radio-group [(ngModel)]="objetpreve.periodicidade" name="periodicidade">
+      <ion-item>
+        <ion-radio value="30 dias" slot="start">30 dias</ion-radio>
+        <ion-radio value="03 meses" slot="start">3 meses</ion-radio>
+        <ion-radio value="06 meses" slot="start">6 meses</ion-radio>
+        <ion-radio value="01 ano" slot="start">1 ano</ion-radio>
+      </ion-item>
+    </ion-radio-group>
+    <br>
+    <br>
+    <ion-item>
+      <ion-label position="floating"></ion-label>
+      <ion-input type="text" name="nome" [(ngModel)]="objetpreve.nome" required></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-input placeholder="Digite a foto" type="text" name="foto" [(ngModel)]="objetpreve.foto" required></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-input placeholder="Digite o passo" type="text" name="passo" [(ngModel)]="objetpreve.passo"
+        required></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-textarea placeholder="Digite a instrução" name="instrucao" [(ngModel)]="objetpreve.instrucao"
+        required></ion-textarea>
+    </ion-item>
+    <br><br>
+    <ion-button type="submit" expand="block" class="minha-cor">Salvar</ion-button>
+    <img [src]="objetpreve.foto" />
+  </form>
+</ion-content>
+<ion-footer>
+  <ion-toolbar class="minha-cor">
+    <ion-buttons slot="start">
+      <ion-button (click)="previousItem()">Anterior</ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="nextItem() ">Próximo</ion-button>
+    </ion-buttons>
+  </ion-toolbar>

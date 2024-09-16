@@ -1,0 +1,135 @@
+#image-fullscreen, #fullscreen-image{
+  background: radial-gradient( rgba(255, 165, 0),rgba(49, 49, 48));
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+#fullscreen-image-maquina {
+  --background: rgba(49, 49, 48, 0.4) !important;
+  display: flex;
+  flex-direction: column;
+}
+ion-card-content, ion-card-title, ion-card-subtitle{
+  color: rgb(250, 244, 244);
+  font-size: 25px; /* Aumenta o tamanho do texto */
+  border-radius: 5px; /* Arredonda os cantos do botão */
+  text-shadow:  4px rgba(10, 10, 10); /* Adiciona uma sombra ao texto */
+
+}
+#ion-list{
+  background-color: rgba(49, 49, 48, 0.4);
+  font-size: 25px; /* Aumenta o tamanho do texto */
+  border-radius: 5px; /* Arredonda os cantos do botão */
+  text-shadow:  4px rgba(10, 10, 10); /* Adiciona uma sombra ao texto */
+
+}
+#cardHeader{
+  color: rgb(0, 0, 0);
+  font-size: 20px; /* Aumenta o tamanho do texto */
+  text-shadow:  4px rgb(250, 244, 244); /* Adiciona uma sombra ao texto */
+
+}
+
+
+ion-footer {
+  box-shadow: 0px 0px 0px px rgba(255, 165, 0, 0.4);
+  border-color: rgba(255, 165, 0, 0.4);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+}
+
+  #fullscreen-card {
+    background: url('https://live.staticflickr.com/65535/53683733944_3ff2eba62d_w.jpg') no-repeat center center fixed;
+    border-radius: 15px;
+    max-height: 300px; /* Define a altura máxima */
+    height: 300px; /* Define a altura fixa */
+    overflow-y: auto; /* Permite a rolagem vertical se o conteúdo exceder a altura */
+  }
+
+  /* Estilos para telas grandes (por exemplo, desktops) */
+  @media screen and (min-width: 1024px) {
+    #fullscreen-card {
+      margin: 0 auto; /* Centraliza o card horizontalmente */
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    #fullscreen-image {
+      overflow-y: auto; /* Permite a rolagem vertical se o conteúdo exceder a altura */
+      flex-direction: column column-reverse;
+
+    }
+  }
+
+  /* Estilos para telas pequenas (por exemplo, celulares) */
+  @media screen and (max-width: 600px) {
+    #fullscreen-card {
+      width: 90%; /* Ajuste este valor conforme necessário */
+      max-width: 100%; /* Define o tamanho máximo para a largura da tela */
+      margin: 10px auto; /* Mantém as bordas e centraliza o card horizontalmente */
+      overflow-y: auto; /* Permite a rolagem vertical se o conteúdo exceder a altura */
+    }
+  }
+  #fullscreen-card::-webkit-scrollbar,
+  #fullscreen-card-grey::-webkit-scrollbar {
+    display: none; /* Esconde a barra de rolagem no Chrome, Safari e Opera */
+  }
+
+  #fullscreen-card,
+  #fullscreen-card-grey {
+    -ms-overflow-style: none;  /* Esconde a barra de rolagem no IE e Edge */
+    scrollbar-width: none;  /* Esconde a barra de rolagem no Firefox */
+  }
+
+  ion-segment-button {
+    --background: rgba(49, 49, 48, 0.4) !important;
+    color: rgb(250, 244, 244);
+    font-size: 20px; /* Aumenta o tamanho do texto */
+    border-radius: 5px; /* Arredonda os cantos do botão */
+    text-shadow:  4px rgba(10, 10, 10); /* Adiciona uma sombra ao texto */
+
+  }
+.transparent-header {
+  --background: radial-gradient( rgba(255, 165, 0),rgba(49, 49, 48)) !important;
+  color: rgb(250, 244, 244);
+  box-shadow: 0px 6px 0px 0px rgba(255, 165, 0, 0.4);
+  border-color: rgba(255, 165, 0, 0.4);
+  height: 100%;
+}
+.transparent-footer{
+  --background: rgba(49, 49, 48, 0.4) !important;
+  color: rgb(250, 244, 244);
+  box-shadow: 0px 0px 0px 6px rgba(255, 165, 0, 0.4);
+  border-color: rgba(255, 165, 0, 0.4);
+  height: 60px;
+}
+ion-fab-button {
+  --background: rgba(255, 165, 0, 0.4);
+  --background-activated: #87d361;
+  --background-hover: #a3e681;
+  --border-radius: 15px;
+  --box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+  --color: rgb(250, 244, 244);
+
+}
+.card-titulo {
+  justify-content:center;
+  font-size: 2rem; /* Tamanho da fonte do título */
+  color:#000000 ; /* Cor do título */
+}
+
+/* Estilo para o subtítulo do card */
+.card-subtitulo {
+
+  font-size: 1.5rem; /* Tamanho da fonte do subtítulo */
+  color: #181717; /* Cor do subtítulo */
+}
+
+
+
+
+
